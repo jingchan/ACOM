@@ -1,0 +1,23 @@
+{
+  "name": "ACOM",
+  "version": "0.0.1",
+  "description": "ACOM",
+  "main": "main.js",
+  "dependencies": {
+    "pixi.js": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jingchan/ACOM"
+  },
+  "author": "Jing Chan and Yan Zhang",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/jingchan/ACOM/issues"
+  },
+  "homepage": "https://github.com/jingchan/ACOM"
+}
