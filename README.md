@@ -13,6 +13,6 @@ ACOM
 6. `browserify main.js > bundle.js`
 
 ## Run
-1. `npm install http-server`
+1. `npm install -g http-server`
 2. `http-server`
 3. Open http://localhost:8080
