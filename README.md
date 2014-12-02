@@ -23,3 +23,7 @@ ACOM
 1. This is a node.js project, which uses npm as a package manager
 2. Pixi.js is a rendering/game engine (Free javascript game engine with decent popularity).
 3. browserify to "compiles/translates" the node project into a single javascript file (bundle.js) to be consumed in a browser.
+
+## TODO
+
+1. Add keyboard input ([keypress](http://dmauro.github.io/Keypress/) seems good)
