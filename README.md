@@ -6,7 +6,7 @@ ACOM
 
 ## Install and Build
 1. Install Git and Node (and NPM)
-2. Install gulp (task runner): `npm install -g gulp`
+2. Install Gulp (task runner): `npm install -g gulp`
 3. `git clone git@github.com:jingchan/ACOM`
 4. `cd ACOM`
 5. `npm install`
