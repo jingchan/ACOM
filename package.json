@@ -7,7 +7,11 @@
     "pixi.js": "^2.1.1",
     "keypress": "git://github.com/dmauro/Keypress.git#2.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^7.0.0",
+    "gulp": "^3.8.10",
+    "gulp-webserver": "^0.8.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

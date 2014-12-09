@@ -13,10 +13,8 @@ ACOM
 6. `browserify main.js > bundle.js`
 
 ## Run
-1. `npm install -g http-server`
-2. `http-server`
-3. Open http://localhost:8080
-
+1. `npm install -g gulp`
+2. `gulp`
 
 ## Brief explanation of the project structure and outside tools.
 
