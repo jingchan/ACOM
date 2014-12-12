@@ -8,13 +8,25 @@
 			padding: 0;
 			background-color: #bbb;
 		}
+		.debug_region {
+			border: solid 1px black;
+			background-color: #fff;
+			padding: 30px;
+			width: 400px;
+			position: absolute;
+			top: 0px;
+			right: 0px;
+		}
 	</style>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/pixi/bin/pixi.dev.js"></script>
 </head>
 <body>
-	<div>WASD for movement, L to shoot</div>
-	<div id="debug">DEBUG</div>
+	<div class="debug_region">
+		<b>Instructions:</b>
+		<div>WASD for movement, Spacebar to shoot</div>
+		<div id="debug">DEBUG</div>
+	</div>
     <script src="bundle.js"></script>
 </body>
 </html>
