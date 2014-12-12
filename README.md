@@ -7,9 +7,11 @@ ACOM
 ## Install and Build
 1. Install Git and Node (and NPM)
 2. Install Gulp (task runner): `npm install -g gulp`
-3. `git clone git@github.com:jingchan/ACOM`
-4. `cd ACOM`
-5. `npm install`
+3. Install Bower (client-side package manager): `npm install -g bower`
+4. `git clone git@github.com:jingchan/ACOM`
+5. `cd ACOM`
+6. `npm install`
+7. `bower install`
 
 ## Build & Run
 1. `gulp`
