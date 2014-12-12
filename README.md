@@ -20,6 +20,3 @@ ACOM
 2. Pixi.js is a rendering/game engine (Free javascript game engine with decent popularity).
 3. Gulp is a task runner (runs small scripts that help with development), its current 'default' action is to copy over the public folder, browserify the project, and start a webserver.  It also reruns this action when changes occur.
  
-## TODO
-
-1. Add keyboard input ([keypress](http://dmauro.github.io/Keypress/) seems good)
