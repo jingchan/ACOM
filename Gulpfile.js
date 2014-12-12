@@ -5,8 +5,10 @@ var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var watch = require('gulp-watch');
 
 gulp.task('default', ['watch', 'watchify', 'server'], function(){
+
 });
 
 gulp.task('server', function(){
@@ -32,10 +34,13 @@ gulp.task('watchify', function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch('public/**/*', ['copy']);
+	gulp.src('public/**/*')
+		.pipe(watch('public/**/*'))
+		.pipe(gulp.dest('./dist/'));
 });
+
 gulp.task('copy', function(){
 	gulp.src('public/**/*')
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('./dist/'));
 		
 });
