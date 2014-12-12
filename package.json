@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "browserify": "^7.0.0",
+    "browserify-shim": "^3.8.1",
     "gulp": "^3.8.10",
     "gulp-util": "^3.0.1",
     "gulp-watch": "^3.0.0",
@@ -28,5 +29,12 @@
   "bugs": {
     "url": "https://github.com/jingchan/ACOM/issues"
   },
-  "homepage": "https://github.com/jingchan/ACOM"
+  "homepage": "https://github.com/jingchan/ACOM",
+  "browserify": {
+    "transform": ["browserify-shim"]
+  },
+  "browserify-shim": {
+    "jquery": "global:$",
+    "pixi.js": "global:PIXI"
+  }
 }
