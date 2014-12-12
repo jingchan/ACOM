@@ -1,0 +1,15 @@
+{
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"rules": {
+		"quotes": [2, "single"],
+		"no-use-before-define": 0,
+		"no-trailing-spaces": 0,
+		"no-underscore-dangle": 0,
+		"curly": [2, "all"],
+		"no-comma-dangle": 0,
+		"handle-callback-err": [2, "^(e|err|error)$"]
+	}
+}
