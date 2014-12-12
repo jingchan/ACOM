@@ -3,6 +3,7 @@
  */
 
 'use strict';
+var $ = require('jquery');
 
 var app = require('./lib')();
 
@@ -10,17 +11,20 @@ var app = require('./lib')();
 app.initialize();
 
 
-// Add view to the DOM
-//document.body.appendChild(app.getView());
-var firstChild = document.body.firstChild;
-document.body.insertBefore(app.getView(), firstChild);
+$(document).ready(function(){
+	// Add view to the DOM
+	//document.body.appendChild(app.getView());
+	var firstChild = document.body.firstChild;
+	document.body.insertBefore(app.getView(), firstChild);
 
 
-// Create animation loop
-function animate() {
-  window.requestAnimationFrame( animate );
+	// Create animation loop
+	function animate() {
+		window.requestAnimationFrame( animate );
 
-  // Step the scene forward
-  app.animateStep();
-}
-window.requestAnimationFrame( animate );
+		// Step the scene forward
+		app.animateStep();
+	}
+	window.requestAnimationFrame( animate );
+
+});
