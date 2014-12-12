@@ -5,6 +5,7 @@ var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
 var browserify = require('browserify');
+var browserifyshim = require('browserify-shim');
 var watch = require('gulp-watch');
 
 gulp.task('default', ['watch', 'watchify', 'server'], function(){
@@ -22,6 +23,7 @@ gulp.task('server', function(){
 
 gulp.task('watchify', function(){
 	var b = watchify(browserify('./main.js', watchify.args));
+	b.transform(browserifyshim);
 	b.on('update', rebundle);
 
 	function rebundle(){
