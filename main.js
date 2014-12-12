@@ -1,3 +1,9 @@
+/**
+ * Creates game instance and adds to html
+ */
+
+'use strict';
+
 var app = require('./lib')();
 
 // Create renderer and add to DOM element
