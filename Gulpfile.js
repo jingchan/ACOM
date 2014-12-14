@@ -1,5 +1,7 @@
+'use strict';
+
 var gulp = require('gulp');
-var webserver = require('gulp-webserver');
+var connect = require('gulp-connect');
 
 var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
@@ -12,13 +14,13 @@ gulp.task('default', ['watch', 'watchify', 'server'], function(){
 
 });
 
-gulp.task('server', function(){
-	gulp.src('./dist')
-		.pipe(webserver({
-			livereload:true,
-			open:true,
-			
-		}));
+gulp.task('server', ['watchify'], function(){
+	connect.server({
+		root: 'dist',
+		livereload: true,
+		port: 8000
+	});
+
 });
 
 gulp.task('watchify', function(){
@@ -30,7 +32,8 @@ gulp.task('watchify', function(){
 		return b.bundle()
 			.on('error', gutil.log.bind(gutil, 'Browserify error'))
 			.pipe(source('bundle.js'))
-			.pipe(gulp.dest('dist'));
+			.pipe(gulp.dest('dist'))
+			.pipe(connect.reload());
 	}
 	return rebundle();
 });
@@ -38,7 +41,8 @@ gulp.task('watchify', function(){
 gulp.task('watch', function(){
 	gulp.src('public/**/*')
 		.pipe(watch('public/**/*'))
-		.pipe(gulp.dest('./dist/'));
+		.pipe(gulp.dest('./dist/'))
+		.pipe(connect.reload());
 });
 
 gulp.task('copy', function(){

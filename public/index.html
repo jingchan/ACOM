@@ -13,21 +13,32 @@
 			background-color: #fff;
 			padding: 30px;
 			width: 400px;
+			height: 400px;
 			position: absolute;
 			top: 0px;
 			right: 0px;
 		}
+		.debug_text_area {
+			height:300px;
+			width: auto;
+			overflow-y: scroll;
+		}
+		.clearfix{
+			clear:both;
+		}
 	</style>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/pixi/bin/pixi.dev.js"></script>
+	<script src="bower_components/underscore/underscore-min.js"></script>
 </head>
 <body>
 	<div class="debug_region">
 		<b>Instructions:</b>
 		<div>WASD for movement, Spacebar to shoot</div>
-		<div id="debug">DEBUG</div>
-		<div id="debug2">DEBUG2</div>
+		<div id="debug" class="debug_text_area"></div>
+		<div class="clearfix"></div>
 	</div>
-    <script src="bundle.js"></script>
+	<div class="clearfix"></div
+>    <script src="bundle.js"></script>
 </body>
 </html>
