@@ -31,3 +31,6 @@ bower_components
 
 # Distribution folder
 dist
+
+# specifics 
+bundle.js
