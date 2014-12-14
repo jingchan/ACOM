@@ -14,7 +14,12 @@ ACOM
 7. `bower install`
 
 ## Build & Run
-1. `gulp`
+1. `gulp` 
+
+## After each `git pull`
+1. Ensure deps are up to date:
+  - `npm install`
+  - `bower install`
 
 ## Brief explanation of the project structure and outside tools.
 
