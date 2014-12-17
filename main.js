@@ -9,6 +9,7 @@ var Phaser = require('phaser');
 // Create renderer and add to DOM element
 
 var game = new Phaser.Game(800, 680, Phaser.AUTO, 'gameDiv');
+var app = require('./lib')(game);
 
 var mainState = {
   preload: function() {
@@ -26,14 +27,16 @@ var mainState = {
   create: function() {
     game.terrain = {};
     game.PCs = {};
-    for (var x in ['wall', 'grass', 'water']) {
-      game.terrain[x] = this.game.add.group();
-      game.terrain[x].createMultiple(30,x);
-    }
-    for (var y in ['monkey','randi','bunny', 'vivi-trans']) {
-      game.PCs[x] = this.game.add.group(); // Create a group
+    var that = this;
+    ['wall', 'grass', 'water'].forEach(function(x){
+      game.terrain[x] = that.game.add.group();
+      game.terrain[x].createMultiple(30, x);
+    });
+    ['monkey', 'randi', 'bunny', 'vivi-trans'].forEach(function(x){
+      game.PCs[x] = that.game.add.group(); // Create a group
       game.PCs[x].createMultiple(5, x); // Create 20 pipes
-    }
+    });
+
     console.log("wtf");
     console.log(this.game);
     // setup game, display sprites, etc.
@@ -46,6 +49,8 @@ var mainState = {
     // var spaceKey =
     //   this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     // spaceKey.onDown.add(this.jump, this);
+    
+    app.initialize();
   },
 
   update: function() {
@@ -61,8 +66,7 @@ game.state.start('main');
 
 console.log("game should have started");
 
-var app = require('./lib')(game);
-app.initialize();
+
 
 // $(document).ready(function(){
 // 	// Add view to the DOM
