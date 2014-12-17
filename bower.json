@@ -17,6 +17,7 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "pixi": "~2.1.1",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "phaser": "~2.2.1"
   }
 }
