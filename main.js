@@ -46,7 +46,6 @@ var mainState = {
     // var spaceKey =
     //   this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     // spaceKey.onDown.add(this.jump, this);
-
   },
 
   update: function() {
@@ -66,6 +65,9 @@ var mainState = {
 
 game.state.add('main', mainState);
 game.state.start('main');
+
+console.log("game should have started");
+
 
 
 // $(document).ready(function(){
