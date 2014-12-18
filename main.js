@@ -9,14 +9,18 @@ var Phaser = require('phaser');
 var App = require('./lib');
 // Create renderer and add to DOM element
 
-var game = new Phaser.Game(800, 680, Phaser.AUTO, 'gameDiv');
+var viewx = 800;
+var viewy = 680;
+var tileSize = 40;
+var game = new Phaser.Game(viewx, viewy, Phaser.AUTO, 'gameDiv');
 game.app = null;
-
 
 var mainState = {
   // required by Phaser
 
   preload: function() {
+    game.tileSize = tileSize;
+    game.viewport = [viewx, viewy];
     // load assets, etc.
     game.load.image('monkey', 'monkey.png');
     game.load.image('randi', 'randi.png');
