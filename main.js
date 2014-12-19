@@ -26,6 +26,8 @@ var mainState = {
     game.load.image('randi', 'randi.png');
     game.load.image('bunny', 'bunny.png');
     game.load.image('vivi-trans', 'vivi-trans.png');
+    game.load.image('xcom-soldier', 'xcom-soldier.png');
+
     game.load.image('wall', 'wall.png');
     game.load.image('grass', 'grass.png');
     game.load.image('water', 'water.png');
@@ -33,18 +35,18 @@ var mainState = {
   },
 
   create: function() {
-    game.terrain = {};
-    game.PCs = {};
+    game.terrainSprites = {};
+    game.agentSprites = {};
     ['wall', 'grass', 'water', 'cursor'].map(function(x) {
-      game.terrain[x] = game.add.group();
-      game.terrain[x].createMultiple(400,x);
+      game.terrainSprites[x] = game.add.group();
+      game.terrainSprites[x].createMultiple(400,x);
     });
-    ['monkey','randi','bunny', 'vivi-trans'].map(function(x) {
-      game.PCs[x] = game.add.group(); // Create a group
-      game.PCs[x].createMultiple(5, x);
+    ['xcom-soldier', 'monkey','randi','bunny', 'vivi-trans'].map(function(x) {
+      game.agentSprites[x] = game.add.group(); // Create a group
+      game.agentSprites[x].createMultiple(5, x);
     });
-    game.cursorSpr = game.add.sprite(0, 0, 'cursor');
-    game.cursorSpr.alpha = 0.7;
+    game.cursorSprite = game.add.sprite(0, 0, 'cursor');
+    game.cursorSprite.alpha = 0.7;
 
   },
 
