@@ -38,6 +38,7 @@
   "browserify-shim": {
     "jquery": "global:$",
     "pixi.js": "global:PIXI",
-    "underscore": "global:_"
+    "underscore": "global:_",
+    "phaser": "global:Phaser"
   }
 }
