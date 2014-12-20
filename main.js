@@ -31,7 +31,7 @@ var mainState = {
     game.load.image('xcom-soldier', 'xcom-soldier.png');
 
     // load sprite sheets
-    game.load.spritesheet('vanessa2', 'vanessa1.png', 373, 267);
+    // game.load.spritesheet('vanessa2', 'vanessa1.png', 373, 267);
     game.load.spritesheet('edgar', 'edgar.png', 32, 48, 4);
 
     // load tiles
