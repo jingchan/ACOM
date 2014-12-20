@@ -54,11 +54,6 @@ var mainState = {
     game.loadedSprites['cursor'] = game.add.sprite(0, 0, 'cursor');
     game.loadedSprites['cursor'].alpha = 0.7;
 
-    /*
-    var vanessa = game.add.sprite(300, 180, 'vanessa2');
-    vanessa.animations.add('supaa');
-    vanessa.animations.play('supaa', 10, true);
-     */
   },
 
   update: function() {
