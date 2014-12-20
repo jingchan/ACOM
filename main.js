@@ -42,18 +42,17 @@ var mainState = {
   },
 
   create: function() {
-    game.terrainSprites = {};
-    game.agentSprites = {};
+    game.loadedSprites = {};
     ['wall', 'grass', 'water', 'cursor'].map(function(x) {
-      game.terrainSprites[x] = game.add.group();
-      game.terrainSprites[x].createMultiple(400,x);
+      game.loadedSprites[x] = game.add.group();
+      game.loadedSprites[x].createMultiple(400,x);
     });
     ['xcom-soldier', 'monkey','randi','bunny', 'vivi-trans', 'edgar'].map(function(x) {
-      game.agentSprites[x] = game.add.group(); // Create a group
-      game.agentSprites[x].createMultiple(5, x);
+      game.loadedSprites[x] = game.add.group(); // Create a group
+      game.loadedSprites[x].createMultiple(5, x);
     });
-    game.cursorSprite = game.add.sprite(0, 0, 'cursor');
-    game.cursorSprite.alpha = 0.7;
+    game.loadedSprites['cursor'] = game.add.sprite(0, 0, 'cursor');
+    game.loadedSprites['cursor'].alpha = 0.7;
 
     /*
     var vanessa = game.add.sprite(300, 180, 'vanessa2');
