@@ -21,13 +21,20 @@ var mainState = {
   preload: function() {
     game.tileSize = tileSize;
     game.viewport = [viewx, viewy];
-    // load assets, etc.
+
+    // TODO: automate all of these.
+    // load sprites
     game.load.image('monkey', 'monkey.png');
     game.load.image('randi', 'randi.png');
     game.load.image('bunny', 'bunny.png');
     game.load.image('vivi-trans', 'vivi-trans.png');
     game.load.image('xcom-soldier', 'xcom-soldier.png');
 
+    // load sprite sheets
+    game.load.spritesheet('vanessa2', 'vanessa1.png', 373, 267);
+    game.load.spritesheet('edgar', 'edgar.png', 32, 48, 4);
+
+    // load tiles
     game.load.image('wall', 'wall.png');
     game.load.image('grass', 'grass.png');
     game.load.image('water', 'water.png');
@@ -41,13 +48,18 @@ var mainState = {
       game.terrainSprites[x] = game.add.group();
       game.terrainSprites[x].createMultiple(400,x);
     });
-    ['xcom-soldier', 'monkey','randi','bunny', 'vivi-trans'].map(function(x) {
+    ['xcom-soldier', 'monkey','randi','bunny', 'vivi-trans', 'edgar'].map(function(x) {
       game.agentSprites[x] = game.add.group(); // Create a group
       game.agentSprites[x].createMultiple(5, x);
     });
     game.cursorSprite = game.add.sprite(0, 0, 'cursor');
     game.cursorSprite.alpha = 0.7;
 
+    /*
+    var vanessa = game.add.sprite(300, 180, 'vanessa2');
+    vanessa.animations.add('supaa');
+    vanessa.animations.play('supaa', 10, true);
+     */
   },
 
   update: function() {
