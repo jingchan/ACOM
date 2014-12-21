@@ -8,7 +8,7 @@
 			padding: 0;
 			background-color: #bbb;
 		}
-		.debug_region {
+		.debug_container {
 			border: solid 1px black;
 			background-color: #fff;
 			padding: 30px;
@@ -17,6 +17,7 @@
 			position: absolute;
 			top: 0px;
 			right: 0px;
+			visibility: hidden;
 		}
 		.debug_text_area {
 			height:300px;
@@ -34,7 +35,7 @@
 </head>
 <body>
 	<div id="gameDiv"></div>
-	<div class="debug_region">
+	<div class="debug_container">
 		<b>Instructions:</b>
 		<div>WASD for movement/menu</div>
     <div>Spacebar for menu selection</div>
