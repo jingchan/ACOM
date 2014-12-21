@@ -10,6 +10,6 @@ var config = require('./lib/config');
 var app = require('./lib')();
 app.initialize('gameDiv');
 
-if(config.debug){
+if(config.debugWindow){
 	$('.debug_container').css('visibility', 'visible');
 }
