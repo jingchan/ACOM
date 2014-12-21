@@ -4,7 +4,12 @@
 
 'use strict';
 var $ = require('jquery');
+var config = require('./lib/config');
 
 // start app
 var app = require('./lib')();
-app.initialize(800, 680, 40, 'gameDiv');
+app.initialize('gameDiv');
+
+if(config.debugWindow){
+	$('.debug_container').css('visibility', 'visible');
+}
