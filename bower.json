@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "mathjs": "~1.2.0",
     "underscore": "~1.7.0",
     "phaser": "~2.2.1"
   }
