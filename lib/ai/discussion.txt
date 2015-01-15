@@ -1,0 +1,81 @@
+ * Example:
+ * - suppose this is XCOM, where one "team" moves each turn. Then
+ *   the AI is the entire team. (in this case, we need to
+ *   differentiate between the Actor Component, which are for
+ *   individual agents to perform actions, and some sort of
+ *   AI Action component, which is done when every actor on the
+ *   team makes a decision) Let's call this "X-COM Style"
+ *   - PRO: more fun for players to coordinate actions
+ *   - PRO: easier for an AI to coordinate a team's actions
+ *   - CON: needs an additional AI layer to pick the order of
+ *     actions
+ *   - PRO/CON: the player identifies with a team instead of
+ *     particular people
+ *
+ * - suppose this is a tactical RPG where there are teams, but
+ *   at each point only one designated agent can move (though
+ *   they can potentially delay their moves as a move, you still
+ *   don't get to permute moves as you please since the enemy may
+ *   get to make moves in the middle). FF4/6 is basically of
+ *   this form. In this situation, an AI is each individual agent,
+ *   and we probably don't need an alternate struct since we
+ *   already have AI's. Let's call this "FF6-style"
+ *   - PRO: can do things like having AI-controlled teammates
+ *   - PRO: each agent has fewer things to think about
+ *   - CON: harder to coordinate actions of a team for players
+ *   - CON: REALLY hard for an AI to coordinate actions of a team
+ *   - PRO/CON: the player identifies with a person instead of the
+ *     team (especially if the rest of the team is AI)
+ *
+ * Note that even in the FF6 style we can have a different kind of
+ * AI (a "Team-AI") that interferes with the individual AI's
+ * preferences for decisions (for example, maybe each AI makes
+ * a decision based on aggroStrategy(aggressionCoefficient) each
+ * turn, and a meta-AI checks the Situations for what's going on
+ * and decides to raise/lower the aggressionCoefficient. One
+ * way of imagining this situation is that the individual Actors
+ * are playing a game where their actions are things like Move,
+ * Attack, etc. and the Team-AI's are playing a game where their
+ * actions are things like changing the Actors' strategies.
+ *
+ * TODO: pick a form. I'm leaning towards FF6-style and eventually
+ * going towards the final form.
+ *
+ * FF6 Style seems good
+ *
+ * Thoughts on implementation:
+ * We should try to achieve structural consistency with our game 
+ * "systems".  Currently we can logically split the project into
+ * two groups of things: entity-like-stuff and system-like-stuff.
+ *
+ * Entity-like: Entity, Components, Map, Scene, Menu
+ * System-like: Renderer, Scene-Manager, AI
+ *
+ * The mental model between these two groups is that entity-likes
+ * hold all the _data_ that parameterize the game, while system-likes
+ * handle the actual carrying-out of those features.  System-likes
+ * always look towards the entity-likes to parameterize themselves, 
+ * and try minimize dependence on other systems.  The addition or 
+ * removal of a systems should eventually feel 'modular', which is 
+ * to say it should feel as easy as adding components to entities. 
+ *
+ * So when it comes to structuring these three systems, we think 
+ * about how we might like to consume these three systems.
+ *
+ * So I think the starting point thinking about something like:
+ * (lib/index.js)
+ * this.addSystem(new Renderer(this.scene));
+ * this.addSystem(new SceneManager(this.scene));
+ * this.addSystem(new AIManager(?));
+ *
+ * this.systems.forEach(function(s){ s.start(); });
+ *
+ * This would define nice interfaces for the systems, exposing just 
+ * two public functions (Constructor, start) with good names and 
+ * intuitive/obvious usage.
+ * 
+ * But the next question is, will this work and expose enough for us 
+ * to achieve what we want in a nice way?  I'm not sure. =)  But if
+ * we outgrow it, we should try to expose as little as possible to be
+ * able to achieve that goal (perhaps just a new 3rd function between 
+ * all the systems)
